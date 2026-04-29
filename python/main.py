@@ -17,14 +17,10 @@ hello_baa()
 hello_foo()
 
 def loop():
-    set_led1_color(1,0,0)
     ping()
     metric = getMetric()
     print("ping metrics:", metric)
 
     time.sleep(5)
-    set_led2_color(0,1,0)
-    
-
 
 App.run(user_loop=loop)
