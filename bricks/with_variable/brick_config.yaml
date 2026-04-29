@@ -1,0 +1,6 @@
+id: with_variable
+name: with_variable
+variables:
+- name: NAME
+  description: a varaible to be used to say hello  to someone
+  default_value: arduino

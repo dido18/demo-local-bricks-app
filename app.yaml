@@ -1,0 +1,11 @@
+name: App with local bricks
+description: ""
+ports: []
+bricks:
+- hello_arduino: {}
+- with_container: {}
+- with_variable:
+    variables:
+      NAME: a-var-value
+- with_submodule: {}
+icon: 😀

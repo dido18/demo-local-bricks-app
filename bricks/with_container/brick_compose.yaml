@@ -1,0 +1,3 @@
+services:
+  pingpong:
+    image: viktoruj/ping_pong
