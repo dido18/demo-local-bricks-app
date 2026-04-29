@@ -150,6 +150,22 @@ def loop():
 App.run(user_loop=loop)  # must be the last line
 ```
 
+Expected output
+
+```
+======== App is starting ============================
+Hi, I am arduino ;)
+Hi: a-var-value
+hello baa
+hello foo
+2026-04-29 10:30:23.347 INFO - [MainThread] App:  App started
+ping metrics: {'goroutines': 6, 'requests_per_minute': 6.505213034913026e-09, 'requests_per_second': 1.0842021724855043e-10, 'requests_total': 1}
+ping metrics: {'goroutines': 6, 'requests_per_minute': 11.954882905523348, 'requests_per_second': 0.19924804842538915, 'requests_total': 2}
+ping metrics: {'goroutines': 6, 'requests_per_minute': 11.94527781510185, 'requests_per_second': 0.19908796358503084, 'requests_total': 3}
+ping metrics: {'goroutines': 6, 'requests_per_minute': 11.936048319377122, 'requests_per_second': 0.19893413865628537, 'requests_total': 4}
+ping metrics: {'goroutines': 6, 'requests_per_minute': 11.931675377629219, 'requests_per_second': 0.19886125629382032, 'requests_total': 5}
+```
+
 ---
 
 ## App Registration (`app.yaml`)
