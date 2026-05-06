@@ -8,6 +8,7 @@ from with_variable import hello_someone
 from with_submodule import hello_baa
 from with_submodule.foo.hello import hello_foo
 from with_container import getMetric, ping
+from with_requirements import hello_fancy
 
 hello_arduino()
 
@@ -16,11 +17,12 @@ hello_someone(os.getenv("NAME"))
 hello_baa()
 hello_foo()
 
+hello_fancy()
+
 def loop():
     ping()
-    metric = getMetric()
-    print("ping metrics:", metric)
-
+    print("ping metrics:",  getMetric())
+    
     time.sleep(5)
 
 App.run(user_loop=loop)
