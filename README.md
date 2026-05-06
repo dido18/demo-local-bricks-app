@@ -71,7 +71,40 @@ hello_someone(os.getenv("NAME"))   # prints "Hi: a-var-value"
 
 ---
 
-### 3. `with_submodule` — Brick with internal Python sub-modules
+### 3. `with_requirements` — Brick with external Python dependencies
+
+Demonstrates how to specify external Python packages using a `requirements.txt` file. The brick can then import and use those dependencies.
+
+```
+bricks/with_requirements/
+├── brick_config.yaml
+├── requirements.txt     # external Python dependencies
+└── __init__.py          # exposes hello_fancy()
+```
+
+`requirements.txt`:
+```
+pyfiglet==1.0.4
+```
+
+`__init__.py`:
+```python
+import pyfiglet
+
+def hello_fancy():
+    banner = pyfiglet.figlet_format("Hello World", font="slant")
+    print(banner)
+```
+
+Usage in `main.py`:
+```python
+from with_requirements import hello_fancy
+hello_fancy()   # prints a fancy ASCII banner
+```
+
+---
+
+### 4. `with_submodule` — Brick with internal Python sub-modules
 
 Shows how to structure a brick with nested Python packages inside it.
 
@@ -95,7 +128,7 @@ hello_foo()
 
 ---
 
-### 4. `with_container` — Brick that spins up a Docker container
+### 5. `with_container` — Brick that spins up a Docker container
 
 Uses `brick_compose.yaml` to start a companion service (`viktoruj/ping_pong`) alongside the app. The brick's Python code communicates with the container over its internal hostname.
 
@@ -133,12 +166,14 @@ import os, time
 
 from hello_arduino import hello_arduino
 from with_variable import hello_someone
+from with_requirements import hello_fancy
 from with_submodule import hello_baa
 from with_submodule.foo.hello import hello_foo
 from with_container import getMetric, ping
 
 hello_arduino()
 hello_someone(os.getenv("NAME"))
+hello_fancy()
 hello_baa()
 hello_foo()
 
@@ -180,5 +215,6 @@ bricks:
   - with_variable:
       variables:
         NAME: a-var-value
+  - with_requirements: {}
   - with_submodule: {}
 ```
