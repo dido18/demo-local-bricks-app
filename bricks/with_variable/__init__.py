@@ -1,5 +1,5 @@
-# put your python code here
+import os
 
-
-def hello_someone(name ):
+def hello_with_variable():
+    name = os.getenv("NAME")
     print(f"Hi: {name}")
